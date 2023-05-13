@@ -35,30 +35,39 @@ browser = webdriver.Chrome(service=s, options=options)
 browser.get(url)
 browser.implicitly_wait(15)
 
-print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 while browser.execute_script("return myGameInstance==null"):
     time.sleep(1)
-print("gggggggggggggggggggggggggggggggggggggg")
 
 # input
 e = browser.find_element(By.ID, 'Temp')
 input('ready?')
 
 
-def run(i: int):
+def run(i, n):
     if (i <= 0):
         i = 0
     timeall = 0
-    while (True):
+    img_cnt = 0
+    while (img_cnt < n):
         for _ in range(i):
             browser.execute_script("myGameInstance.SendMessage('GameController','CaptureContinue',0)")
             timeall += 1
+            img_cnt += 1
             print(timeall)
-
-        browser.execute_script("myGameInstance.SendMessage('GameController','SetVisibleMap',0)")
+            time.sleep(1)
+        #browser.execute_script("myGameInstance.SendMessage('GameController','SetVisibleMap',0)")
         e.send_keys(os.path.join(background_path, random.choice(bk_paths)))
         jscm = "myGameInstance.SendMessage('ImgTemp', 'FileSelected', URL.createObjectURL(document.getElementById('Temp').files[0]));"
         browser.execute_script(jscm)
 
+def main(i, n, m):
+    circle_time = m // n
+    c_cnt = 0
+    print("c: ", circle_time)
+    while (c_cnt < circle_time):
+        c_cnt += 1
+        run(i, n)
+        input("change")
 
-run(10)
+
+main(10, 200, 600)
