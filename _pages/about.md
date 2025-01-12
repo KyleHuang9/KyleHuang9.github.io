@@ -27,7 +27,7 @@ My research interest includes video understanding and large-scale multimodal mod
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/sefar.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2025</div><img src='images/sefar.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [SeFAR: Semi-supervised Fine-grained Action Recognition with Temporal Perturbation and Learning Stabilization](https://arxiv.org/abs/2501.01245)
